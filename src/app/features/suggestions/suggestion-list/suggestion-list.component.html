@@ -1,0 +1,33 @@
+<h2>Liste des Suggestions</h2>
+
+<!-- Recherche -->
+<h3>Favoris</h3>
+<ul>
+  <li *ngFor="let f of favorites">
+    {{ f.title }}
+  </li>
+</ul>
+<div *ngFor="let s of filteredSuggestions()" class="card">
+
+  <h3>{{ s.title }}</h3>
+  <p>{{ s.description }}</p>
+
+  <p><strong>Catégorie :</strong> {{ s.category }}</p>
+  <p><strong>Date :</strong> {{ s.date | date:'MMM dd, yyyy' }}</p>
+  <p><strong>Likes :</strong> {{ s.nbLikes }}</p>
+
+  <div *ngIf="s.status !== 'refusee'">
+    <button (click)="likeSuggestion(s)">👍 Like</button>
+    <button (click)="addToFavorites(s)">⭐ Favoris</button>
+    <button [routerLink]="[s.id]">Details</button>
+  </div>
+
+  <p *ngIf="s.status === 'refusee'" class="refusee">
+    ❌ Suggestion refusée
+  </p>
+
+</div>
+
+<hr>
+
+
