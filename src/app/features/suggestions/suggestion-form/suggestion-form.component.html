@@ -1,0 +1,64 @@
+<div class="page-bg">
+
+  <div class="form-wrapper">
+
+    <div class="form-card">
+
+      <div class="form-header">
+        <h2>Nouvelle Suggestion</h2>
+      </div>
+
+      <form [formGroup]="suggestionForm" (ngSubmit)="submit()">
+
+        <!-- TITLE -->
+        <div class="input-group-modern">
+          <label>Titre</label>
+          <input type="text" formControlName="title" placeholder="Ex: Améliorer la cafétéria">
+          <small *ngIf="suggestionForm.get('title')?.touched && suggestionForm.get('title')?.invalid">
+            Titre invalide
+          </small>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="input-group-modern">
+          <label>Description</label>
+          <textarea rows="4" formControlName="description"
+                    placeholder="Décrivez votre idée en détail..."></textarea>
+          <small *ngIf="suggestionForm.get('description')?.touched && suggestionForm.get('description')?.invalid">
+            Minimum 30 caractères
+          </small>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="input-group-modern">
+          <label>Catégorie</label>
+          <select formControlName="category">
+            <option value="">Choisir une catégorie</option>
+            <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+
+        <!-- DATE + STATUS -->
+        <div class="row-modern">
+          <div class="input-group-modern">
+            <label>Date</label>
+            <input formControlName="date" readonly>
+          </div>
+
+          <div class="input-group-modern">
+            <label>Statut</label>
+            <input formControlName="status" readonly>
+          </div>
+        </div>
+
+        <button class="submit-btn" type="submit" [disabled]="suggestionForm.invalid">
+          Publier la suggestion
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

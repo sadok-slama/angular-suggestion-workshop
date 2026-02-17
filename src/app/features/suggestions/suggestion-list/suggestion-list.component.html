@@ -1,12 +1,20 @@
 <h2>Liste des Suggestions</h2>
 
-<!-- Recherche -->
-<h3>Favoris</h3>
-<ul>
-  <li *ngFor="let f of favorites">
-    {{ f.title }}
-  </li>
-</ul>
+<!-- Barre recherche -->
+<input
+  type="text"
+  placeholder="Rechercher par titre ou catégorie"
+  
+/>
+
+<!-- Bouton ajouter -->
+<div style="margin: 15px 0;">
+  <button routerLink="add" class="btn btn-primary">
+     + + Ajouter suggestion + + 
+  </button>
+</div>
+
+<!-- Liste suggestions -->
 <div *ngFor="let s of filteredSuggestions()" class="card">
 
   <h3>{{ s.title }}</h3>
@@ -30,4 +38,9 @@
 
 <hr>
 
-
+<h3>Favoris</h3>
+<ul>
+  <li *ngFor="let f of favorites">
+    {{ f.title }}
+  </li>
+</ul>

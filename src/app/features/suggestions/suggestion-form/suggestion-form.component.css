@@ -1,0 +1,106 @@
+/* Background gradient */
+.page-bg {
+  min-height: 100vh;
+  background: #cedaff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Wrapper */
+.form-wrapper {
+  width: 100%;
+  max-width: 650px;
+}
+
+/* Glass card */
+.form-card {
+  backdrop-filter: blur(20px);
+  background: rgba(149, 207, 255, 0.15);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  color: rgb(0, 0, 0);
+}
+
+/* Header */
+.form-header h2 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group-modern {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.input-group-modern label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.input-group-modern input,
+.input-group-modern textarea,
+.input-group-modern select {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.9);
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.input-group-modern input:focus,
+.input-group-modern textarea:focus,
+.input-group-modern select:focus {
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Small error */
+.input-group-modern small {
+  color: #ff0000;
+  margin-top: 4px;
+}
+
+/* Row */
+.row-modern {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #0766cb, #144cdb);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

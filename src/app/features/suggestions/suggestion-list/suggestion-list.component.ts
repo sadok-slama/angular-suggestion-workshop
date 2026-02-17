@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Suggestion } from '../../../models/suggestion';
 
 @Component({
@@ -6,7 +7,7 @@ import { Suggestion } from '../../../models/suggestion';
   templateUrl: './suggestion-list.component.html',
   styleUrls: ['./suggestion-list.component.css']
 })
-export class SuggestionListComponent {
+export class SuggestionListComponent implements OnInit {
 
   searchText: string = '';
   favorites: Suggestion[] = [];
@@ -17,6 +18,18 @@ export class SuggestionListComponent {
     { id: 3, title: 'Créer un système de récompenses', description: 'Mise en place d\'un programme de récompenses pour motiver les employés.', category: 'Ressources Humaines', date: new Date('2025-01-25'), status: 'refusee', nbLikes: 0 },
     { id: 4, title: 'Moderniser l\'interface utilisateur', description: 'Refonte complète de l\'interface utilisateur.', category: 'Technologie', date: new Date('2025-01-30'), status: 'en_attente', nbLikes: 0 }
   ];
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+  const stored = localStorage.getItem('suggestions');
+
+  if (stored) {
+    const newSuggestions = JSON.parse(stored);
+    this.suggestions = [...this.suggestions, ...newSuggestions];
+  }
+}
+
 
   likeSuggestion(s: Suggestion) {
     s.nbLikes++;
